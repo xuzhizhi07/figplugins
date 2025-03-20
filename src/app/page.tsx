@@ -1,4 +1,4 @@
-import { PluginCard } from "@/components/features/PluginCard";
+import PluginCard from "@/components/PluginCard";
 import { SearchBar } from "@/components/features/SearchBar";
 import { FilterBar } from "@/components/features/FilterBar";
 import { prisma } from "@/lib/prisma";
@@ -22,12 +22,7 @@ export default async function Home() {
         {plugins.map((plugin) => (
           <PluginCard
             key={plugin.id}
-            name={plugin.name}
-            description={plugin.shortDescription}
-            thumbnail={plugin.thumbnail}
-            logo={plugin.logo}
-            isPaid={plugin.isPaid}
-            category={plugin.category}
+            plugin={plugin}
           />
         ))}
       </div>
