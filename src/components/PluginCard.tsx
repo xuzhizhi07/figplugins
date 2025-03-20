@@ -29,30 +29,36 @@ export default function PluginCard({ plugin }: PluginCardProps) {
   return (
     <>
       <div 
-        className="border rounded-lg p-4 cursor-pointer hover:shadow-lg transition-shadow"
+        className="border rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
         onClick={() => setIsModalOpen(true)}
       >
-        <div className="flex items-center gap-4">
+        <div className="relative h-48">
           <Image
-            src={plugin.logo}
+            src={plugin.thumbnail}
             alt={plugin.name}
-            width={48}
-            height={48}
-            className="rounded-lg"
+            fill
+            className="object-cover"
           />
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
+          <div className="absolute top-2 right-2">
+            <span className={`px-2 py-1 rounded-full text-xs ${
+              plugin.isPaid ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
+            }`}>
+              {plugin.isPaid ? '付费' : '免费'}
+            </span>
+          </div>
+        </div>
+        <div className="p-4">
+          <div className="flex items-center gap-4">
+            <Image
+              src={plugin.logo}
+              alt={plugin.name}
+              width={48}
+              height={48}
+              className="rounded-lg"
+            />
+            <div>
               <h3 className="font-semibold">{plugin.name}</h3>
-              <span className={`px-2 py-0.5 rounded-full text-xs ${
-                plugin.isPaid ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
-              }`}>
-                {plugin.isPaid ? '付费' : '免费'}
-              </span>
-            </div>
-            <p className="text-sm text-gray-600 mb-2">{plugin.shortDescription}</p>
-            <div className="flex items-center gap-2">
-              <Tag size={14} className="text-gray-500" />
-              <span className="text-xs text-gray-500">{plugin.category}</span>
+              <p className="text-sm text-gray-600">{plugin.shortDescription}</p>
             </div>
           </div>
         </div>
