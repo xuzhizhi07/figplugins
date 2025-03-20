@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Star } from "lucide-react";
 
 interface PluginCardProps {
   name: string;
@@ -46,10 +45,6 @@ export function PluginCard({ name, description, thumbnail, logo, isPaid, categor
         
         <div className="flex items-center justify-between">
           <span className="text-sm text-gray-500">{category}</span>
-          <div className="flex items-center gap-1">
-            <Star className="h-4 w-4 text-yellow-400 fill-current" />
-            <span className="text-sm text-gray-600">4.8</span>
-          </div>
         </div>
       </div>
     </div>

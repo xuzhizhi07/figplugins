@@ -9,6 +9,9 @@
     "lint": "next lint",
     "seed": "ts-node prisma/seed.ts"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "^5.10.0",
     "lucide-react": "^0.330.0",
