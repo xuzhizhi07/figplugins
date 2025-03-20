@@ -31,7 +31,7 @@ export default function PluginModal({ plugin, isOpen, onClose }: PluginModalProp
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-4">
             <Image
-              src={plugin.logo}
+              src={`/plugins/logos/${plugin.logo}`}
               alt={plugin.name}
               width={64}
               height={64}

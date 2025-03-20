@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import PluginModal from './PluginModal'
+import { Tag } from 'lucide-react'
 
 interface Plugin {
   id: string
@@ -31,14 +32,19 @@ export default function PluginCard({ plugin }: PluginCardProps) {
       >
         <div className="flex items-center gap-4">
           <Image
-            src={plugin.logo}
+            src={`/plugins/logos/${plugin.logo}`}
             alt={plugin.name}
             width={48}
             height={48}
             className="rounded-lg"
           />
-          <div>
-            <h3 className="font-semibold">{plugin.name}</h3>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="font-semibold">{plugin.name}</h3>
+              <span className="px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">
+                {plugin.category}
+              </span>
+            </div>
             <p className="text-sm text-gray-600">{plugin.shortDescription}</p>
           </div>
         </div>

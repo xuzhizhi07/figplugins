@@ -61,6 +61,10 @@ export default function PluginCard({ plugin }: PluginCardProps) {
               <p className="text-sm text-gray-600">{plugin.shortDescription}</p>
             </div>
           </div>
+          <div className="mt-3 flex items-center gap-2">
+            <Tag size={14} className="text-gray-500" />
+            <span className="text-sm text-gray-500">{plugin.category}</span>
+          </div>
         </div>
       </div>
 
