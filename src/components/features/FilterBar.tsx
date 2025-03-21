@@ -33,8 +33,6 @@ export function FilterBar({ onFilter }: FilterBarProps) {
           <option value="">所有分类</option>
           <option value="设计工具">设计工具</option>
           <option value="开发工具">开发工具</option>
-          <option value="原型设计">原型设计</option>
-          <option value="导出工具">导出工具</option>
         </select>
       </div>
       
