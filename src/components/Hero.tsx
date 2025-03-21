@@ -1,16 +1,20 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-blue-50 to-white py-16">
+    <section className="bg-[#F6F3EE]">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            发现优质 Figma 插件
-          </h1>
-          <p className="text-xl text-gray-600">
-            探索、筛选和发现能够提升您设计工作流程的 Figma 插件
-          </p>
+        <div className="max-w-4xl mx-auto">
+          <Image
+            src="/hero.png"
+            alt="FigPlugins Hero"
+            width={1200}
+            height={400}
+            className="w-full"
+            priority
+          />
         </div>
       </div>
     </section>

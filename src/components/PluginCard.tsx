@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Tag } from 'lucide-react'
 import PluginModal from './PluginModal'
 
 interface Plugin {
@@ -29,41 +28,38 @@ export default function PluginCard({ plugin }: PluginCardProps) {
   return (
     <>
       <div 
-        className="border rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+        className="bg-white rounded-[24px] shadow-sm hover:shadow-md transition-shadow cursor-pointer p-6"
         onClick={() => setIsModalOpen(true)}
       >
-        <div className="relative h-48">
+        {/* 分类 */}
+        <div>
+          <span className="inline-flex px-3 py-1 text-sm border border-gray-200 text-gray-900 rounded-full">
+            # {plugin.category}
+          </span>
+        </div>
+
+        {/* 缩略图 */}
+        <div className="relative h-48 mt-4 mb-4">
           <Image
             src={plugin.thumbnail}
             alt={plugin.name}
             fill
-            className="object-cover"
+            className="object-cover rounded-xl"
           />
-          <div className="absolute top-2 right-2">
-            <span className={`px-2 py-1 rounded-full text-xs ${
-              plugin.isPaid ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'
-            }`}>
-              {plugin.isPaid ? '付费' : '免费'}
-            </span>
-          </div>
         </div>
-        <div className="p-4">
-          <div className="flex items-center gap-4">
-            <Image
-              src={plugin.logo}
-              alt={plugin.name}
-              width={48}
-              height={48}
-              className="rounded-lg"
-            />
-            <div>
-              <h3 className="font-semibold">{plugin.name}</h3>
-              <p className="text-sm text-gray-600">{plugin.shortDescription}</p>
-            </div>
-          </div>
-          <div className="mt-3 flex items-center gap-2">
-            <Tag size={14} className="text-gray-500" />
-            <span className="text-sm text-gray-500">{plugin.category}</span>
+
+        {/* 插件信息 */}
+        <div className="flex items-center gap-3">
+          <Image
+            src={plugin.logo}
+            alt={plugin.name}
+            width={40}
+            height={40}
+            className="rounded-xl"
+          />
+          <div>
+            <h3 className="font-semibold text-gray-900">{plugin.name}</h3>
+            <p className="text-sm text-gray-600">{plugin.shortDescription}</p>
           </div>
         </div>
       </div>

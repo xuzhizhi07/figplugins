@@ -1,4 +1,3 @@
-import { Tag, DollarSign } from "lucide-react";
 import { useState } from "react";
 
 interface FilterBarProps {
@@ -9,44 +8,106 @@ export function FilterBar({ onFilter }: FilterBarProps) {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
 
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    setCategory(value);
-    onFilter(value, price);
+  const handleCategoryClick = (value: string) => {
+    const newValue = category === value ? "" : value;
+    setCategory(newValue);
+    onFilter(newValue, price);
   };
 
-  const handlePriceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    setPrice(value);
-    onFilter(category, value);
+  const handlePriceClick = (value: string) => {
+    const newValue = price === value ? "" : value;
+    setPrice(newValue);
+    onFilter(category, newValue);
   };
 
   return (
-    <div className="flex flex-wrap gap-4">
-      <div className="flex items-center gap-2">
-        <Tag className="h-4 w-4 text-gray-500" />
-        <select 
-          value={category}
-          onChange={handleCategoryChange}
-          className="px-3 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    <div className="space-y-4">
+      {/* 价格筛选 */}
+      <div className="flex flex-wrap gap-4">
+        <button
+          onClick={() => handlePriceClick("")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            price === "" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
         >
-          <option value="">所有分类</option>
-          <option value="设计工具">设计工具</option>
-          <option value="开发工具">开发工具</option>
-        </select>
+          全部
+        </button>
+        <button
+          onClick={() => handlePriceClick("free")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            price === "free" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
+        >
+          免费
+        </button>
+        <button
+          onClick={() => handlePriceClick("paid")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            price === "paid" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
+        >
+          付费
+        </button>
       </div>
-      
-      <div className="flex items-center gap-2">
-        <DollarSign className="h-4 w-4 text-gray-500" />
-        <select 
-          value={price}
-          onChange={handlePriceChange}
-          className="px-3 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+      {/* 分类筛选 */}
+      <div className="flex flex-wrap gap-4">
+        <button
+          onClick={() => handleCategoryClick("")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            category === "" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
         >
-          <option value="">所有价格</option>
-          <option value="free">免费</option>
-          <option value="paid">付费</option>
-        </select>
+          全部
+        </button>
+        <button
+          onClick={() => handleCategoryClick("AI")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            category === "AI" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
+        >
+          AI
+        </button>
+        <button
+          onClick={() => handleCategoryClick("字体")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            category === "字体" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
+        >
+          字体
+        </button>
+        <button
+          onClick={() => handleCategoryClick("颜色")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            category === "颜色" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
+        >
+          颜色
+        </button>
+        <button
+          onClick={() => handleCategoryClick("协作工具")}
+          className={`px-4 py-2 text-sm rounded-full transition-colors ${
+            category === "协作工具" 
+              ? "bg-black text-white" 
+              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
+          }`}
+        >
+          协作工具
+        </button>
       </div>
     </div>
   );
