@@ -2,6 +2,12 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { Rubik } from 'next/font/google'
+
+const rubik = Rubik({
+  subsets: ['latin'],
+  weight: '600',
+})
 
 export default function Header() {
   return (
@@ -16,7 +22,7 @@ export default function Header() {
               height={32}
               className="mr-2"
             />
-            <span className="text-xl font-bold">FigPlugins</span>
+            <span className={`text-xl font-bold ${rubik.className}`}>FigPlugins</span>
           </Link>
         </div>
       </div>

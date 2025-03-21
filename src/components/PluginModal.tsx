@@ -73,7 +73,7 @@ export default function PluginModal({ plugin, isOpen, onClose }: PluginModalProp
               />
               <div>
                 <h2 className="text-[15px] font-bold mb-1">{plugin.name}</h2>
-                <p className="text-gray-600 text-[13px]">{plugin.shortDescription}</p>
+                <p className="text-[#747474] text-[13px]">{plugin.shortDescription}</p>
               </div>
             </div>
             <a

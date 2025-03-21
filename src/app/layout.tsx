@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Rubik } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Figma 插件展示平台",
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh">
-      <body className={inter.className}>
+      <body className={`${inter.className} font-['PingFang_SC','MiSans',sans-serif]`}>
         <main className="min-h-screen bg-gray-50">
           {children}
         </main>
