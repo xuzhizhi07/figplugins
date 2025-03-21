@@ -50,13 +50,14 @@ export default function PluginCard({ plugin }: PluginCardProps) {
 
         {/* 插件信息 */}
         <div className="flex items-center gap-3">
-          <Image
-            src={plugin.logo}
-            alt={plugin.name}
-            width={40}
-            height={40}
-            className="rounded-xl"
-          />
+          <div className="w-10 h-10 rounded-xl overflow-hidden">
+            <Image
+              src={plugin.logo}
+              alt={plugin.name}
+              width={40}
+              height={40}
+            />
+          </div>
           <div>
             <h3 className="font-semibold text-gray-900">{plugin.name}</h3>
             <p className="text-sm text-gray-600">{plugin.shortDescription}</p>

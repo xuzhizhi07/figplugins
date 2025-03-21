@@ -69,44 +69,24 @@ export function FilterBar({ onFilter }: FilterBarProps) {
           全部
         </button>
         <button
-          onClick={() => handleCategoryClick("AI")}
+          onClick={() => handleCategoryClick("设计工具")}
           className={`px-4 py-2 text-sm rounded-full transition-colors ${
-            category === "AI" 
+            category === "设计工具" 
               ? "bg-black text-white" 
               : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
           }`}
         >
-          AI
+          设计工具
         </button>
         <button
-          onClick={() => handleCategoryClick("字体")}
+          onClick={() => handleCategoryClick("开发工具")}
           className={`px-4 py-2 text-sm rounded-full transition-colors ${
-            category === "字体" 
+            category === "开发工具" 
               ? "bg-black text-white" 
               : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
           }`}
         >
-          字体
-        </button>
-        <button
-          onClick={() => handleCategoryClick("颜色")}
-          className={`px-4 py-2 text-sm rounded-full transition-colors ${
-            category === "颜色" 
-              ? "bg-black text-white" 
-              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
-          }`}
-        >
-          颜色
-        </button>
-        <button
-          onClick={() => handleCategoryClick("协作工具")}
-          className={`px-4 py-2 text-sm rounded-full transition-colors ${
-            category === "协作工具" 
-              ? "bg-black text-white" 
-              : "bg-[#EBE9E4] text-black hover:bg-[#E0DEDA]"
-          }`}
-        >
-          协作工具
+          开发工具
         </button>
       </div>
     </div>
