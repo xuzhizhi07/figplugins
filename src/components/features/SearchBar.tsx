@@ -17,8 +17,8 @@ export function SearchBar({ onSearch }: SearchBarProps) {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="relative w-full max-w-2xl">
+    <div className="flex justify-center transition-all duration-300">
+      <div className="relative w-full max-w-xl">
         <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
           <Image
             src="/search.png"

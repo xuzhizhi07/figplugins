@@ -1,7 +1,6 @@
 'use client';
 
 import PluginCard from "@/components/PluginCard";
-import { SearchBar } from "@/components/features/SearchBar";
 import { FilterBar } from "@/components/features/FilterBar";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -75,13 +74,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F6F3EE] flex flex-col">
       <Header />
-      <Hero />
+      <Hero onSearch={handleSearch} />
       
       <main className="container mx-auto px-4 py-8 flex-grow">
-        <div className="mb-8">
-          <SearchBar onSearch={handleSearch} />
-        </div>
-
         <div className="mb-8">
           <FilterBar onFilter={handleFilter} />
         </div>
@@ -98,7 +93,6 @@ export default function Home() {
           })}
         </div>
       </main>
-
       <Footer />
     </div>
   );

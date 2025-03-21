@@ -39,7 +39,7 @@ export default function PluginCard({ plugin }: PluginCardProps) {
         </div>
 
         {/* 缩略图 */}
-        <div className="relative h-48 mt-4 mb-4">
+        <div className="relative w-full aspect-[2/1] mt-4 mb-4">
           <Image
             src={plugin.thumbnail}
             alt={plugin.name}
