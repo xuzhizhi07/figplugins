@@ -32,17 +32,15 @@ export default function PluginModal({ plugin, isOpen, onClose }: PluginModalProp
         {/* 关闭按钮 */}
         <button
           onClick={onClose}
-          className="absolute -right-12 -top-12 text-gray-500 hover:text-gray-700 text-2xl"
+          className="absolute -right-12 -top-8 hover:opacity-80 transition-opacity"
         >
-          ✕
+          <Image
+            src="/close.png"
+            alt="关闭"
+            width={46}
+            height={46}
+          />
         </button>
-
-        {/* 分类标签 */}
-        <div className="absolute left-16 top-20">
-          <span className="px-4 py-1.5 bg-white border border-[#E5E5E5] text-[13px] rounded-full">
-            # {plugin.category}
-          </span>
-        </div>
 
         {/* 免费/付费标签 */}
         <div className="absolute right-16 -top-1 w-16 z-10">
@@ -55,43 +53,52 @@ export default function PluginModal({ plugin, isOpen, onClose }: PluginModalProp
           />
         </div>
 
-        {/* 头部：logo + 名称 + 链接直达按钮 */}
-        <div className="flex items-start justify-between mb-8 relative z-20 mt-28">
-          <div className="flex items-center gap-6">
-            <Image
-              src={plugin.logo}
-              alt={plugin.name}
-              width={60}
-              height={60}
-              className="rounded-2xl"
-            />
-            <div>
-              <h2 className="text-[15px] font-bold mb-1">{plugin.name}</h2>
-              <p className="text-gray-600 text-[13px]">{plugin.shortDescription}</p>
-            </div>
+        <div className="flex flex-col gap-8">
+          {/* 分类标签 */}
+          <div className="-mt-8">
+            <span className="px-4 py-1.5 bg-white border border-[#E5E5E5] text-[13px] rounded-full">
+              # {plugin.category}
+            </span>
           </div>
-          <a
-            href={`https://www.figma.com/community/plugin/${plugin.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white px-6 py-3 rounded-full text-[14px] font-medium hover:bg-gray-800 transition-colors flex items-center gap-2"
-          >
-            链接直达 
-            <Image 
-              src="/link.png" 
-              alt="链接" 
-              width={12} 
-              height={12} 
-              className="ml-1"
-            />
-          </a>
-        </div>
 
-        {/* 详细描述 */}
-        <div className="mt-2 flex-grow">
-          <p className="text-gray-700 text-[14px] leading-relaxed whitespace-pre-wrap">
-            {plugin.description}
-          </p>
+          {/* 头部：logo + 名称 + 链接直达按钮 */}
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-6">
+              <Image
+                src={plugin.logo}
+                alt={plugin.name}
+                width={60}
+                height={60}
+                className="rounded-2xl"
+              />
+              <div>
+                <h2 className="text-[15px] font-bold mb-1">{plugin.name}</h2>
+                <p className="text-gray-600 text-[13px]">{plugin.shortDescription}</p>
+              </div>
+            </div>
+            <a
+              href={`https://www.figma.com/community/plugin/${plugin.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white px-6 py-4 rounded-full text-[14px] font-medium hover:bg-gray-800 transition-colors flex items-center gap-2"
+            >
+              链接直达 
+              <Image 
+                src="/link.png" 
+                alt="链接" 
+                width={12} 
+                height={12} 
+                className="ml-1"
+              />
+            </a>
+          </div>
+
+          {/* 详细描述 */}
+          <div className="flex-grow">
+            <p className="text-gray-700 text-[14px] leading-relaxed whitespace-pre-wrap">
+              {plugin.description}
+            </p>
+          </div>
         </div>
       </div>
     </div>
